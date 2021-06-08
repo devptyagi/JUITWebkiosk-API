@@ -22,31 +22,18 @@ public class SubjectFacultyController {
     private static String URL = "https://webkiosk.juit.ac.in:9443/StudentFiles/Academic/StudSubjectFaculty.jsp";
 
     @PostMapping("")
-    public ResponseEntity<?> getSubjectFaculty(@Valid @RequestBody WebkioskCredential credential) {
+    public ResponseEntity<?> getSubjectFaculty(@Valid @RequestBody WebkioskCredential credential, @RequestParam(required = false) String semester) {
         String enrollmentNumber = credential.getEnrollmentNumber();
         String password = credential.getPassword();
 
-        try {
-            List<SubjectFaculty> res = SubjectFacultyProcessor.getSubjectFaculty(enrollmentNumber, password, URL);
-            return new ResponseEntity<>(res, HttpStatus.OK);
-        } catch (InvalidCredentialsException e) {
-            Map<String, String> res = new HashMap<>();
-            res.put("error", "Invalid Credentials / Session Timed Out");
-            return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
-        } catch (IOException e) {
-            Map<String, String> res = new HashMap<>();
-            res.put("error", "Unknown Error");
-            return new ResponseEntity<>(res, HttpStatus.INTERNAL_SERVER_ERROR);
+        String subjectFacultyUrl = URL;
+
+        if(semester != null) {
+            subjectFacultyUrl += Constants.URL_QUERY_PARAM + semester;
         }
-    }
-
-    @PostMapping("/{semester}")
-    public ResponseEntity<?> getSubjectFaculty(@Valid @RequestBody WebkioskCredential credential, @PathVariable String semester) {
-        String enrollmentNumber = credential.getEnrollmentNumber();
-        String password = credential.getPassword();
 
         try {
-            List<SubjectFaculty> res = SubjectFacultyProcessor.getSubjectFaculty(enrollmentNumber, password, URL + Constants.URL_QUERY_PARAM + semester);
+            List<SubjectFaculty> res = SubjectFacultyProcessor.getSubjectFaculty(enrollmentNumber, password, subjectFacultyUrl);
             return new ResponseEntity<>(res, HttpStatus.OK);
         } catch (InvalidCredentialsException e) {
             Map<String, String> res = new HashMap<>();
