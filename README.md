@@ -1,7 +1,6 @@
 ## JUIT WebKiosk API - Spring Boot (Unofficial)
 
-<img alt="Spring" src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white"/>
-<img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white"/>
+<img alt="Spring" src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white"/> <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white"/>
 
 A __working api__ for accessing JUIT WebKiosk Data. Created using Java Spring Boot.  
 API Url: https://webkiosk-juit.herokuapp.com/
