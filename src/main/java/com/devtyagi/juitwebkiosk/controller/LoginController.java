@@ -1,8 +1,11 @@
 package com.devtyagi.juitwebkiosk.controller;
 
+import com.devtyagi.juitwebkiosk.constants.ApiMetaData;
 import com.devtyagi.juitwebkiosk.constants.Constants;
 import com.devtyagi.juitwebkiosk.model.WebkioskCredential;
 import com.devtyagi.juitwebkiosk.util.CookieUtility;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -18,12 +21,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/login")
+@RequestMapping("/api/login")
+@Api(value = "/api/login", tags = "Login")
 public class LoginController {
 
     private static final String URL = "https://webkiosk.juit.ac.in:9443/StudentFiles/StudentPage.jsp";
 
     @PostMapping("")
+    @ApiOperation(value = ApiMetaData.loginControllerValue, notes = ApiMetaData.loginControllerNotes)
     public ResponseEntity<?> login(@RequestBody WebkioskCredential webkioskCredential) throws IOException {
         String enrollmentNumber = webkioskCredential.getEnrollmentNumber();
         String password = webkioskCredential.getPassword();

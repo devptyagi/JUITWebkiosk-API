@@ -1,10 +1,14 @@
 package com.devtyagi.juitwebkiosk.controller;
 
+import com.devtyagi.juitwebkiosk.constants.ApiMetaData;
 import com.devtyagi.juitwebkiosk.constants.Constants;
 import com.devtyagi.juitwebkiosk.exception.InvalidCredentialsException;
 import com.devtyagi.juitwebkiosk.model.SubjectFaculty;
 import com.devtyagi.juitwebkiosk.model.WebkioskCredential;
 import com.devtyagi.juitwebkiosk.processor.SubjectFacultyProcessor;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -16,13 +20,15 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/subjectFaculty")
+@RequestMapping("/api/subjectFaculty")
+@Api(value = "/api/subjectFaculty", tags = "Subject Faculty List")
 public class SubjectFacultyController {
 
     private static String URL = "https://webkiosk.juit.ac.in:9443/StudentFiles/Academic/StudSubjectFaculty.jsp";
 
     @PostMapping("")
-    public ResponseEntity<?> getSubjectFaculty(@Valid @RequestBody WebkioskCredential credential, @RequestParam(required = false) String semester) {
+    @ApiOperation(value = ApiMetaData.subjectFacultyControllerValue, notes = ApiMetaData.subjectFacultyControllerNotes)
+    public ResponseEntity<?> getSubjectFaculty(@Valid @RequestBody WebkioskCredential credential, @ApiParam(value = ApiMetaData.semesterParam) @RequestParam(required = false) String semester) {
         String enrollmentNumber = credential.getEnrollmentNumber();
         String password = credential.getPassword();
 

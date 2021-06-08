@@ -1,6 +1,7 @@
 package com.devtyagi.juitwebkiosk.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 public class Attendance {
 

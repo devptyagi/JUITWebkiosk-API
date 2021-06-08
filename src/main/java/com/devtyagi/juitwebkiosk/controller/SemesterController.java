@@ -1,9 +1,12 @@
 package com.devtyagi.juitwebkiosk.controller;
 
+import com.devtyagi.juitwebkiosk.constants.ApiMetaData;
 import com.devtyagi.juitwebkiosk.exception.InvalidCredentialsException;
 import com.devtyagi.juitwebkiosk.model.Semester;
 import com.devtyagi.juitwebkiosk.model.WebkioskCredential;
 import com.devtyagi.juitwebkiosk.processor.SemesterProcessor;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +21,12 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/semesters")
+@RequestMapping("/api/semesters")
+@Api(value = "/api/semester", tags = "Semester Codes")
 public class SemesterController {
 
     @PostMapping("")
+    @ApiOperation(value = ApiMetaData.semesterControllerValue, notes = ApiMetaData.semesterControllerNotes)
     public ResponseEntity<?> getSemesters(@Valid @RequestBody WebkioskCredential credential) {
         String enrollmentNumber = credential.getEnrollmentNumber();
         String password = credential.getPassword();

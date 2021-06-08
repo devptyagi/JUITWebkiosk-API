@@ -1,9 +1,12 @@
 package com.devtyagi.juitwebkiosk.controller;
 
+import com.devtyagi.juitwebkiosk.constants.ApiMetaData;
 import com.devtyagi.juitwebkiosk.exception.InvalidCredentialsException;
 import com.devtyagi.juitwebkiosk.model.DetailedAttendance;
 import com.devtyagi.juitwebkiosk.model.DetailedAttendancePayload;
 import com.devtyagi.juitwebkiosk.processor.DetailedAttendanceProcessor;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,10 +18,12 @@ import java.util.List;
 import java.util.Map;
 
 @RestController()
-@RequestMapping("/detailedAttendance")
+@RequestMapping("/api/detailedAttendance")
+@Api(value = "/api/detailedAttendance", tags = "Detailed Attendance")
 public class DetailedAttendanceController {
 
     @PostMapping("")
+    @ApiOperation(value = ApiMetaData.detailedAttendanceControllerValue, notes = ApiMetaData.detailedAttendanceControllerNotes)
     public ResponseEntity<?> getDetailedAttendance(@Valid @RequestBody DetailedAttendancePayload payload) {
         String enrollmentNumber = payload.getEnrollmentNumber();
         String password = payload.getPassword();

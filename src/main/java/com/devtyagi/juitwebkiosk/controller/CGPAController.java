@@ -1,9 +1,12 @@
 package com.devtyagi.juitwebkiosk.controller;
 
+import com.devtyagi.juitwebkiosk.constants.ApiMetaData;
 import com.devtyagi.juitwebkiosk.exception.InvalidCredentialsException;
 import com.devtyagi.juitwebkiosk.model.CGPAReport;
 import com.devtyagi.juitwebkiosk.model.WebkioskCredential;
 import com.devtyagi.juitwebkiosk.processor.CGPAProcessor;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,10 +21,12 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/cgpa")
+@RequestMapping("/api/cgpa")
+@Api(value = "/api/cgpa", tags = "CGPA Report")
 public class CGPAController {
 
     @PostMapping("")
+    @ApiOperation(value = ApiMetaData.cgpaControllerValue, notes = ApiMetaData.cgpaControllerNotes)
     public ResponseEntity<?> getCGPAReport (@Valid @RequestBody WebkioskCredential credential) {
         String enrollmentNumber = credential.getEnrollmentNumber();
         String password = credential.getPassword();
