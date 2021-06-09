@@ -8,7 +8,7 @@ API Url: https://webkiosk-juit.herokuapp.com/
 ### Required request body
 ```
 {
-    "enrollmentNumber": "191XXX",
+    "enrollmentNumber": "XXXXXX",
     "password": "XXXXXXXX"
 }
 ```
