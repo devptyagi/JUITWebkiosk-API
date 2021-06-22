@@ -24,6 +24,7 @@ public class JuitwebkioskApplication {
 	@Bean
 	public Docket swaggerConfiguration() {
 		return new Docket(DocumentationType.SWAGGER_2)
+				.useDefaultResponseMessages(false)
 				.select()
 				.paths(PathSelectors.ant("/api/*"))
 				.build()
