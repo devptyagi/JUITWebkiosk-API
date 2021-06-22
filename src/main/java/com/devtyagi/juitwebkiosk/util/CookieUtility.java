@@ -14,7 +14,7 @@ public class CookieUtility {
      * Connect to webkiosk.juit.ac.in:9443
      * Login with the provided credentials and return the cookies received
      * from the host.
-     * These cookies can be used to further crawl other Webkiosk Urls
+     * These cookies can be used to further crawl other WebKiosk Urls
      * */
     public static Map<String, String> getCookiesFor(String enrollmentNumber, String password) throws IOException {
         Connection.Response loginForm = Jsoup.connect("https://webkiosk.juit.ac.in:9443/")
