@@ -40,12 +40,13 @@ public class LoginController {
                 .execute().parse();
 
         if (document.toString().contains("FrameLeftStudent.jsp")) {
-            Map<String, String> body = new HashMap<>();
-            body.put("message", "Success");
+            Map<String, Boolean> body = new HashMap<>();
+            body.put("success", true);
             return new ResponseEntity<>(body, HttpStatus.OK);
         } else {
-            Map<String, String> body = new HashMap<>();
-            body.put("message", "Invalid");
+            Map<String, Object> body = new HashMap<>();
+            body.put("success", false);
+            body.put("error", "Invalid Credentials!");
             return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
         }
     }
