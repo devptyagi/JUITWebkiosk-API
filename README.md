@@ -49,5 +49,5 @@ API Url: https://webkiosk-juit.herokuapp.com/
 
 ## Full Documentation
 
-Read the full documentation [here.](https://webkiosk-juit.herokuapp.com/swagger-ui.html)  
+Read the full documentation [here.](https://webkiosk-juit.herokuapp.com/)  
 
