@@ -24,7 +24,7 @@ public class SubjectFaculty {
     }
 
     public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
+        this.subjectName = !subjectName.equals("") ? subjectName : null;
     }
 
     public String getLectureFaculty() {
@@ -32,7 +32,7 @@ public class SubjectFaculty {
     }
 
     public void setLectureFaculty(String lectureFaculty) {
-        this.lectureFaculty = lectureFaculty;
+        this.lectureFaculty = !lectureFaculty.equals("") ? lectureFaculty : null;
     }
 
     public String getTutorialFaculty() {
@@ -40,7 +40,7 @@ public class SubjectFaculty {
     }
 
     public void setTutorialFaculty(String tutorialFaculty) {
-        this.tutorialFaculty = tutorialFaculty;
+        this.tutorialFaculty = !tutorialFaculty.equals("") ? tutorialFaculty : null;
     }
 
     public String getPracticalFaculty() {
@@ -48,7 +48,7 @@ public class SubjectFaculty {
     }
 
     public void setPracticalFaculty(String practicalFaculty) {
-        this.practicalFaculty = practicalFaculty;
+        this.practicalFaculty = !practicalFaculty.equals("") ? practicalFaculty : null;
     }
 
     public String getSubjectCode() {
@@ -56,6 +56,6 @@ public class SubjectFaculty {
     }
 
     public void setSubjectCode(String subjectCode) {
-        this.subjectCode = subjectCode;
+        this.subjectCode = !subjectCode.equals("") ? subjectCode : null;
     }
 }
