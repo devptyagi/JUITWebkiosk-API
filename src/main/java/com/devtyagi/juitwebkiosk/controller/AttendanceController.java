@@ -40,11 +40,13 @@ public class AttendanceController {
             List<Attendance> res = AttendanceProcessor.getAttendance(enrollmentNumber, password, attendanceUrl);
             return new ResponseEntity<>(res, HttpStatus.OK);
         } catch (InvalidCredentialsException e) {
-            Map<String, String> res = new HashMap<>();
+            Map<String, Object> res = new HashMap<>();
+            res.put("success", false);
             res.put("error", "Invalid Credentials / Session Timed Out");
             return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);
         } catch (IOException e) {
-            Map<String, String> res = new HashMap<>();
+            Map<String, Object> res = new HashMap<>();
+            res.put("success", false);
             res.put("error", "Unknown Error");
             return new ResponseEntity<>(res, HttpStatus.INTERNAL_SERVER_ERROR);
         }
