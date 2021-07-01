@@ -40,8 +40,9 @@ public class LoginController {
                 .execute().parse();
 
         if (document.toString().contains("FrameLeftStudent.jsp")) {
-            Map<String, Boolean> body = new HashMap<>();
+            Map<String, Object> body = new HashMap<>();
             body.put("success", true);
+            body.put("message", "Welcome to JUIT WebKiosk!");
             return new ResponseEntity<>(body, HttpStatus.OK);
         } else {
             Map<String, Object> body = new HashMap<>();
