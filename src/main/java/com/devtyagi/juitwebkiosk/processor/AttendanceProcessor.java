@@ -39,7 +39,6 @@ public class AttendanceProcessor {
             for (Element element : elements) {
                 Elements subElements = element.children();
 
-                // Create a new Attendance Object and set the member variables.
                 Attendance attendance = new Attendance();
                 attendance.setSubjectName(StringUtility.getSubjectNameFromAttendance(subElements.get(1).text()));
                 attendance.setSubjectCode(StringUtility.getSubjectCodeFromAttendance(subElements.get(1).text()));
@@ -49,12 +48,9 @@ public class AttendanceProcessor {
                 attendance.setPracticalAttendance(StringUtility.convertStringAttendanceToInteger(subElements.get(5).text()));
                 attendance.setDetailAttendanceUrl(Constants.INITIAL_KIOSK_ACADEMIC_URL + subElements.get(2).getElementsByTag("a").attr("href"));
 
-                //Check if the lecture, tutorial and overall attendance is null i.e. it is a practical subject
                 if (attendance.getOverallAttendance() == null && attendance.getLectureAttendance() == null && attendance.getTutorialAttendance() == null) {
                     attendance.setOverallAttendance(attendance.getPracticalAttendance());
-
                     String detailAttendanceUrl = StringUtility.cleanString(subElements.get(5).getElementsByTag("a").attr("href"));
-
                     if (detailAttendanceUrl != null && detailAttendanceUrl.length() != 0) {
                         attendance.setDetailAttendanceUrl(Constants.INITIAL_KIOSK_ACADEMIC_URL + detailAttendanceUrl);
                     } else {
@@ -64,7 +60,6 @@ public class AttendanceProcessor {
                 attendanceResult.add(attendance);
             }
         }
-
         return attendanceResult;
     }
 
