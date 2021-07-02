@@ -36,10 +36,8 @@ public class SubjectFacultyProcessor {
                     .get(0).children();
 
             for (int x = 1; x < elements.size(); x++) {
-                //Create new SubjectFaculty object
                 SubjectFaculty subjectFaculty = new SubjectFaculty();
 
-                //Get the sub elements of each row
                 Elements subElements = elements.get(x).getElementsByTag("td");
                 subjectFaculty.setSubjectName(StringUtility.getSubjectName(subElements.get(1).text()));
                 subjectFaculty.setSubjectCode(StringUtility.getSubjectCode(subElements.get(1).text()));
@@ -47,7 +45,6 @@ public class SubjectFacultyProcessor {
                 subjectFaculty.setTutorialFaculty(StringUtility.cleanString(subElements.get(3).text()));
                 subjectFaculty.setPracticalFaculty(StringUtility.cleanString(subElements.get(4).text()));
 
-                //Add to subject faculty result
                 subjectFacultyList.add(subjectFaculty);
             }
         }
