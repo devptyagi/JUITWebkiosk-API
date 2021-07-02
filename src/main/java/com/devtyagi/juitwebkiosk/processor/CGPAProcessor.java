@@ -23,7 +23,6 @@ public class CGPAProcessor {
         List<CGPAReport> cgpaReport = new ArrayList<>();
         Map<String, String> cookies = CookieUtility.getCookiesFor(enrollmentNumber, password);
 
-        //Login into webkiosk using the cookies
         Document document = Jsoup.connect(URL)
                 .cookies(cookies)
                 .userAgent(Constants.AGENT_MOZILLA)
