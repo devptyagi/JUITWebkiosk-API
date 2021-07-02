@@ -37,7 +37,6 @@ public class SubjectProcessor {
             for (int x = 1; x < elements.size() - 1; x++) {
                 Elements subElements = elements.get(x).children();
 
-                //Create subject and add to subject result list
                 Subject subject = new Subject();
                 subject.setSubjectName(StringUtility.getSubjectName(subElements.get(1).text()));
                 subject.setSubjectCode(StringUtility.getSubjectCode(subElements.get(1).text()));
