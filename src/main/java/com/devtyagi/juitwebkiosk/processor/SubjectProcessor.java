@@ -40,7 +40,7 @@ public class SubjectProcessor {
                 Subject subject = new Subject();
                 subject.setSubjectName(StringUtility.getSubjectName(subElements.get(1).text()));
                 subject.setSubjectCode(StringUtility.getSubjectCode(subElements.get(1).text()));
-                subject.setSubjectCredits(Integer.parseInt(StringUtility.cleanString(subElements.get(2).text())));
+                subject.setSubjectCredits(Double.parseDouble(StringUtility.cleanString(subElements.get(2).text())));
                 subject.setSubjectType(StringUtility.cleanString(subElements.get(3).text()));
 
                 subjects.add(subject);

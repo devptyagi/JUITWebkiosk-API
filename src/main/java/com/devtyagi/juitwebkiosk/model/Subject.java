@@ -4,13 +4,13 @@ public class Subject {
 
     private String subjectName;
     private String subjectCode;
-    private int subjectCredits;
+    private double subjectCredits;
     private String subjectType;
 
     public Subject() {
     }
 
-    public Subject(String subjectName, String subjectCode, int subjectCredits, String subjectType) {
+    public Subject(String subjectName, String subjectCode, double subjectCredits, String subjectType) {
         this.subjectName = subjectName;
         this.subjectCode = subjectCode;
         this.subjectCredits = subjectCredits;
@@ -33,11 +33,11 @@ public class Subject {
         this.subjectCode = subjectCode;
     }
 
-    public int getSubjectCredits() {
+    public double getSubjectCredits() {
         return subjectCredits;
     }
 
-    public void setSubjectCredits(int subjectCredits) {
+    public void setSubjectCredits(double subjectCredits) {
         this.subjectCredits = subjectCredits;
     }
 
