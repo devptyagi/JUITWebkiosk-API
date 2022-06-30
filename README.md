@@ -3,7 +3,7 @@
 <img alt="Spring" src="https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white"/> <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white"/>
 
 A __working api__ for accessing JUIT WebKiosk Data. Created using Java Spring Boot.  
-API Url: http://172.105.35.94/
+API Url: https://juit-webkiosk.herokuapp.com/
 
 ### Required request body
 ```
@@ -49,5 +49,5 @@ API Url: http://172.105.35.94/
 
 ## Full Documentation
 
-Read the full documentation [here.](http://172.105.35.94/)  
+Read the full documentation [here.](https://juit-webkiosk.herokuapp.com/)  
 
